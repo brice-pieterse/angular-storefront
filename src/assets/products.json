@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "thumb": "got",
+        "name": "Game of Thrones",
+        "price": 49.99,
+        "featured": true
+    },
+    {
+        "id": 2,
+        "thumb": "wolves",
+        "name": "Raised by Wolves",
+        "price": 39.99,
+        "featured": false
+    },
+    {
+        "id": 3,
+        "thumb": "simpsons",
+        "name": "Simpsons",
+        "price": 59.99,
+        "featured": true
+    },
+    {
+        "id": 4,
+        "thumb": "obx",
+        "name": "Outer Banks",
+        "price": 29.99,
+        "featured": false
+    },
+    {
+        "id": 5,
+        "thumb": "mandalorian",
+        "name": "The Mandalorian",
+        "price": 59.99,
+        "featured": true
+    },
+    {
+        "id": 6,
+        "thumb": "mirror",
+        "name": "Black Mirror",
+        "price": 49.99,
+        "featured": true
+    }
+]
