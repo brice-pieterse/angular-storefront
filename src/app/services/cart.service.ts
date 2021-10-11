@@ -32,7 +32,7 @@ export class CartService {
 
     while (notFound && index <= this.cart.length){
       if (this.cart[index].id === product.id){
-        this.cart[index].quantity += quantity
+        this.cart[index].quantity = quantity
         notFound = false
         break
       }

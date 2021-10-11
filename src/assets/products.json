@@ -1,44 +1,56 @@
 [
     {
         "id": 1,
-        "thumb": "got",
+        "thumb": "got.jpeg",
+        "bg": "got.jpeg",
         "name": "Game of Thrones",
         "price": 49.99,
-        "featured": true
+        "featured": true,
+        "description": "Nine noble families wage war against each other in order to gain control over the mythical land of Westeros. Meanwhile, a force is rising after millenniums and threatens the existence of living men."
     },
     {
         "id": 2,
-        "thumb": "wolves",
+        "thumb": "wolves.jpg",
+        "bg": "",
         "name": "Raised by Wolves",
         "price": 39.99,
-        "featured": false
+        "featured": false,
+        "description": "Two androids are tasked with raising human children on a mysterious virgin planet; as the human colony threatens to be torn apart by religious differences, the androids learn that controlling the beliefs of humans is a treacherous and difficult task."
     },
     {
         "id": 3,
-        "thumb": "simpsons",
+        "thumb": "simpsons.jpg",
+        "bg": "",
         "name": "Simpsons",
         "price": 59.99,
-        "featured": true
+        "featured": true,
+        "description": "Working-class father Homer Simpson and his dysfunctional family deal with comical situations and the ups-and-downs of life in the town of Springfield."
     },
     {
         "id": 4,
-        "thumb": "obx",
+        "thumb": "obx.jpg",
+        "bg": "",
         "name": "Outer Banks",
         "price": 29.99,
-        "featured": false
+        "featured": false,
+        "description": "A teenager enlists his three best friends to hunt for a legendary treasure linked to his father's disappearance."
     },
     {
         "id": 5,
-        "thumb": "mandalorian",
+        "thumb": "mandalorian.jpg",
+        "bg": "",
         "name": "The Mandalorian",
         "price": 59.99,
-        "featured": true
+        "featured": true,
+        "description": "After the defeat of the Empire at the hands of Rebel forces, a lone bounty hunter operating in the Outer Rim, away from the dominion of the New Republic, goes on many surprising and risky adventures."
     },
     {
         "id": 6,
-        "thumb": "mirror",
+        "thumb": "mirror.jpg",
+        "bg": "",
         "name": "Black Mirror",
         "price": 49.99,
-        "featured": true
+        "featured": true,
+        "description": "In an abstrusely dystopian future, several individuals grapple with the manipulative effects of cutting edge technology in their personal lives and behaviours."
     }
 ]

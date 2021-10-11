@@ -4,6 +4,8 @@ export class Product {
     name: string
     price: number
     featured: boolean
+    description: string
+    bg: string
 
     constructor(){
         this.id = 0
@@ -11,5 +13,7 @@ export class Product {
         this.name = ""
         this.price = 0
         this.featured = false
+        this.description = ""
+        this.bg = ""
     }
 }

@@ -1,8 +1,15 @@
 <div class='nav-wrapper'>
-<div class='brand'>
-    <img src="../../assets/brand.svg" alt="Logo" style="height: 40px; width:auto">
-</div>
-<a class='nav-link' routerLink='/'>Home</a>
-<a class='nav-link' routerLink='/cart'>Cart</a>
-<a class='nav-link' routerLink='/discover'>Discover</a>
+
+    <div class='max-width-container horizontal pad'>
+        <div class='brand'>
+            <img src="../../assets/brand.svg" alt="Logo" style="height: 40px; width:auto">
+        </div>
+        <div class="nav-link-wrapper"></div>
+
+        <a class='nav-link' routerLink='/' [ngClass]=" currentRoute === '/' ? 'is-active' : '' " >Home</a>
+
+        <a class='nav-link' routerLink='/cart' [ngClass]=" currentRoute === '/cart' ? 'is-active' : '' ">Cart</a>
+
+    </div>
+
 </div>

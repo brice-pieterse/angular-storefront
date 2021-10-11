@@ -10,16 +10,24 @@ import { Product } from '../models/product'
 export class HomeComponent implements OnInit {
 
   featuredProducts: Product[] = []
+  featuredMain: Product;
 
-  constructor(private inventoryService: InventoryService) { }
+  constructor(private inventoryService: InventoryService) {
+    
+   }
 
   ngOnInit(): void {
 
+    let $this = this
+
     // get the products marked to be featured on home
-    this.inventoryService.getInventory().subscribe(products => {
-      this.featuredProducts = products.filter(item => {
+    $this.inventoryService.getInventory().subscribe(products => {
+      $this.featuredProducts = products.filter(item => {
         return item.featured
       })
+
+      $this.featuredMain = $this.featuredProducts[0]
+
     })
 
   }

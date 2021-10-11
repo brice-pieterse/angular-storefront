@@ -1,1 +1,11 @@
 <app-nav></app-nav>
+<div class="aligner">
+<div class="max-width-container featured">
+<app-featured-main [featuredMain]="featuredProducts[0]"></app-featured-main>
+<div class="featured-list">
+    <div class="featured-slider">
+        <app-product-thumb *ngFor="let product of featuredProducts" [product]="product"></app-product-thumb>
+    </div>
+</div>
+</div>
+</div>

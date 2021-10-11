@@ -4,7 +4,6 @@ import { CartService } from '../services/cart.service'
 
 class CartProduct extends Product {
   quantity: number
-
   constructor(){
     super()
     this.quantity = 0

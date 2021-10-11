@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router'
 
 @Component({
   selector: 'app-nav',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  currentRoute: string = '/'
+
+  constructor(private router: Router) {
+
+    router.events.subscribe(event => {
+      if (event instanceof NavigationEnd){
+        this.currentRoute = event.url
+      }
+    })
+    
+  }
 
   ngOnInit(): void {
   }
