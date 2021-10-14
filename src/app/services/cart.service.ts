@@ -30,7 +30,7 @@ export class CartService {
     let notFound = true
     let index = 0
 
-    while (notFound && index <= this.cart.length){
+    while (index <= this.cart.length){
       if (this.cart[index].id === product.id){
         this.cart[index].quantity = quantity
         notFound = false

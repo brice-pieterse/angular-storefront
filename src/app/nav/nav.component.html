@@ -8,7 +8,7 @@
 
         <a class='nav-link' routerLink='/' [ngClass]=" currentRoute === '/' ? 'is-active' : '' " >Home</a>
 
-        <a class='nav-link' routerLink='/cart' [ngClass]=" currentRoute === '/cart' ? 'is-active' : '' ">Cart</a>
+        <a #cartButton class='nav-link cart-link' routerLink='/cart' [ngClass]=" currentRoute === '/cart' ? 'is-active' : '' " >Cart</a>
 
     </div>
 

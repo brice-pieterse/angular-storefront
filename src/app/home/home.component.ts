@@ -18,15 +18,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    let $this = this
-
     // get the products marked to be featured on home
-    $this.inventoryService.getInventory().subscribe(products => {
-      $this.featuredProducts = products.filter(item => {
+    this.inventoryService.getInventory().subscribe(products => {
+      this.featuredProducts = products.filter(item => {
         return item.featured
       })
 
-      $this.featuredMain = $this.featuredProducts[0]
+      this.featuredMain = this.featuredProducts[0]
 
     })
 
