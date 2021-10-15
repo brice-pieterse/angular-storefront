@@ -14,7 +14,8 @@ export class BackgroundThemeDirective {
   ngOnInit(){
     this.el.nativeElement.style.backgroundImage = `url("../assets/product-bg/${this.bgImage}")`
     this.el.nativeElement.style.backgroundPosition = 'center'
-    this.el.nativeElement.style.backgroundSize = '100%'
+    this.el.nativeElement.style.backgroundSize = 'cover'
+    this.el.nativeElement.style.backgroundRepeat = 'no-repeat'
   
   }
 

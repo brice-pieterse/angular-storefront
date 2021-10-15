@@ -1,7 +1,7 @@
-import { CssSelector } from '@angular/compiler';
-import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, AfterViewInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router'
 import { CartService } from '../services/cart.service'
+import { Product } from '../models/product'
 
 @Component({
   selector: 'app-nav',
@@ -11,7 +11,17 @@ import { CartService } from '../services/cart.service'
 export class NavComponent implements OnInit {
 
   currentRoute: string = '/'
-  cartCount: number = 0
+  private _cartCount: number
+
+  @Input() 
+  set cartCount(val: number){
+    this._cartCount = val
+    this.updateCartCount()
+  }
+
+  get cartCount(): number {
+    return this._cartCount
+  }
 
   @ViewChild('cartButton') cartButton: ElementRef;
 
@@ -26,11 +36,11 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cartCount = this.cartService.getCartProducts.length
 
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
+
     let cartIcon = document.createElement('p');
     
     (function (element: HTMLElement, props: {[key: string]: string}){
@@ -60,9 +70,15 @@ export class NavComponent implements OnInit {
       "color": "white"
     })
 
-    cartIcon.innerText = this.cartCount.toString()
-
     this.cartButton.nativeElement.append(cartIcon)
+    this.updateCartCount()
+
+  }
+
+  updateCartCount(): void {
+    if (this.cartButton){
+      this.cartButton.nativeElement.getElementsByTagName('p')[0].innerText = this.cartCount.toString()
+    }
   }
 
 }

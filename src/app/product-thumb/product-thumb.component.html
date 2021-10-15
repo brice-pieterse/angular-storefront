@@ -1,9 +1,8 @@
 <div class="featured-item">
-    <a class="link-block" href="/products/{{product.id}}" (mouseenter)="setHovered()" (mouseleave)="setHoverOut()"></a>
     <div class="bg-overlay" [ngClass]="{'hovered': hovered === true}"></div>
     <div class="featured-item-details">
         <p class="text-large">{{product?.name}}</p>
-        <a class='button-primary margin-top' routerLink='/products/{{product.id}'>Purchase Now - {{product?.price}}</a>
+        <a class='button-primary margin-top' routerLink='/products/{{product.id}}' (mouseenter)="setHovered()" (mouseleave)="setHoverOut()">About</a>
     </div>
     <img src='../../assets/product-thumbs/{{product.thumb}}' style="width: 100%; max-width: 100%; height: 100%; object-fit: cover; object-position: center top;">
 </div>

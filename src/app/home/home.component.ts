@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InventoryService } from '../services/inventory.service'
 import { Product } from '../models/product'
+import { CartService } from '../services/cart.service'
 
 @Component({
   selector: 'app-home',
@@ -9,10 +10,11 @@ import { Product } from '../models/product'
 })
 export class HomeComponent implements OnInit {
 
+  cartCount: number = 0
   featuredProducts: Product[] = []
   featuredMain: Product;
 
-  constructor(private inventoryService: InventoryService) {
+  constructor(private inventoryService: InventoryService, private cartService: CartService) {
     
    }
 
@@ -27,6 +29,8 @@ export class HomeComponent implements OnInit {
       this.featuredMain = this.featuredProducts[0]
 
     })
+    
+    this.cartCount = this.cartService.getCartProducts().length
 
   }
 

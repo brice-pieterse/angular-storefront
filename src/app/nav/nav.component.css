@@ -4,8 +4,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #04172E;
     position: relative;
+    z-index: 2;
 }
 
 .brand {

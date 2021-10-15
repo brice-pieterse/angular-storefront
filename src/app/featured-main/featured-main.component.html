@@ -1,12 +1,12 @@
-<div *ngIf="featuredMain?.bg" class="featured-main" appBackgroundTheme bgImage={{featuredMain?.bg}}>
+<div *ngIf="featuredMain?.bg" class="product-container" appBackgroundTheme bgImage={{featuredMain?.bg}}>
     <div class="bg-overlay" [ngClass]="{'hovered': hovered === true}"></div>
-    <div class="featured-thumb">
+    <div class="product-thumb">
         <img *ngIf="featuredMain?.thumb" src='../../assets/product-thumbs/{{featuredMain?.thumb}}'>
     </div>
-    <div class="featured-details">
+    <div class="product-details">
             <h1 class="margin-bottom">Show Of The Day</h1>
             <p class="text-large">{{featuredMain?.name}}</p>
             <p class="text-small margin-top">{{featuredMain?.description}}</p>
-            <a (mouseenter)="setHovered()" (mouseleave)="setHoverOut()" class='button-primary margin-top' routerLink='/products/{{featuredMain.id}'>Purchase Now - {{featuredMain?.price}}</a>
+            <a (mouseenter)="setHovered()" (mouseleave)="setHoverOut()" class='button-primary margin-top' routerLink='/products/{{featuredMain.id}}'>About</a>
     </div>
 </div>

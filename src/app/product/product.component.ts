@@ -13,6 +13,7 @@ import { Location } from '@angular/common'
 
 export class ProductComponent implements OnInit {
 
+  cartCount: number
   product: Product
 
   constructor(private inventoryService: InventoryService, private cartService: CartService, private location: Location, private route: ActivatedRoute) { }
@@ -27,10 +28,17 @@ export class ProductComponent implements OnInit {
       }
     })
 
+    console.log("cart", this.cartService.getCartProducts())
+
+    this.cartCount = this.cartService.getCartProducts().length
+
   }
 
-  addToCart(qty: number): void {
-    this.cartService.addToCart(this.product, qty)
+  addToCart(): void {
+    this.cartService.addToCart(this.product, 1)
+    this.cartCount = this.cartService.getCartProducts().length
   }
+
+  
 
 }

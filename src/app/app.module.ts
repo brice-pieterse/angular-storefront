@@ -11,6 +11,7 @@ import { ProductComponent } from './product/product.component';
 import { BackgroundThemeDirective } from './background-theme.directive';
 import { ProductThumbComponent } from './product-thumb/product-thumb.component';
 import { FeaturedMainComponent } from './featured-main/featured-main.component';
+import { CartService } from './services/cart.service'
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { FeaturedMainComponent } from './featured-main/featured-main.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

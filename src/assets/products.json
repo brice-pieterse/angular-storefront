@@ -11,7 +11,7 @@
     {
         "id": 2,
         "thumb": "wolves.jpg",
-        "bg": "",
+        "bg": "wolves.jpg",
         "name": "Raised by Wolves",
         "price": 39.99,
         "featured": false,
@@ -20,7 +20,7 @@
     {
         "id": 3,
         "thumb": "simpsons.jpg",
-        "bg": "",
+        "bg": "simpsons.jpeg",
         "name": "Simpsons",
         "price": 59.99,
         "featured": true,
@@ -29,7 +29,7 @@
     {
         "id": 4,
         "thumb": "obx.jpg",
-        "bg": "",
+        "bg": "obx.jpeg",
         "name": "Outer Banks",
         "price": 29.99,
         "featured": false,
@@ -38,7 +38,7 @@
     {
         "id": 5,
         "thumb": "mandalorian.jpg",
-        "bg": "",
+        "bg": "star.jpeg",
         "name": "The Mandalorian",
         "price": 59.99,
         "featured": true,
@@ -47,7 +47,7 @@
     {
         "id": 6,
         "thumb": "mirror.jpg",
-        "bg": "",
+        "bg": "mirror.jpeg",
         "name": "Black Mirror",
         "price": 49.99,
         "featured": true,
