@@ -44,7 +44,7 @@ body {
 }
 
 .button-primary.margin-top {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 h1 {
@@ -96,8 +96,12 @@ p {
     font-weight: 400;
 }
 
-p.margin-top {
+.text-medium.margin-top {
     margin-top: 20px;
+}
+
+.text-small.margin-top {
+    margin-top: 10px;
 }
 
 .aligner {
@@ -120,4 +124,13 @@ img {
 
 a {
     text-decoration: none;
+}
+
+.underline {
+    width: 90%;
+    height: 1px;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    left: 5%;
 }

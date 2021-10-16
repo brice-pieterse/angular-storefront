@@ -15,46 +15,38 @@ class CartProduct extends Product {
 
 export class CartService {
 
-  cart: CartProduct[] = []
+  cart: Product[] = []
 
   constructor() {
 
   }
 
   getCartProducts(){
-    console.log("cart service", this.cart)
+
     return this.cart
+    
   }
 
-  addToCart(product: Product, quantity: number){
+  addToCart(product: Product){
 
-    let notFound = true
-    let index = 0
-
-    while (index < this.cart.length){
-      if (this.cart[index].id === product.id){
-        this.cart[index].quantity = quantity
-        notFound = false
-        break
-      }
-      index++
-    }
-
-    if (notFound){
-      const cartItem = Object.assign({quantity: quantity}, product)
-      this.cart.push(cartItem)
+    if (!this.cart.includes(product)){
+      this.cart.push(product)
     }
 
   }
 
   removeFromCart(product: Product){
+
     this.cart = this.cart.filter((item) => {
       return item.id !== product.id
     })
+
   }
 
   emptyCart(){
+
     this.cart = []
+
   }
 
 }

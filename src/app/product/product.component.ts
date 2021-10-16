@@ -28,14 +28,12 @@ export class ProductComponent implements OnInit {
       }
     })
 
-    console.log("cart", this.cartService.getCartProducts())
-
     this.cartCount = this.cartService.getCartProducts().length
 
   }
 
   addToCart(): void {
-    this.cartService.addToCart(this.product, 1)
+    this.cartService.addToCart(this.product)
     this.cartCount = this.cartService.getCartProducts().length
   }
 

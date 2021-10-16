@@ -1,1 +1,32 @@
-<app-nav></app-nav>
+<app-nav [cartCount]="cartCount"></app-nav>
+<div class="aligner">
+    <div class="max-width-container horizontal">
+        <div class="cart-wrapper">
+            <div *ngIf="items.length >= 1; else emptyBlock" class="cart-products-container">
+                <div class="cart-product" *ngFor="let item of items">
+                    <img class="cart-product-thumb" src="../../assets/product-thumbs/{{item.thumb}}">
+                    <div class="cart-product-details">
+                        <p class="text-large">{{item?.name}}</p>
+                        <p class="text-small margin-top">{{item?.description}}</p>
+                        <a (click)="removeItem(item)" class="button-primary margin-top">
+                            Remove
+                        </a>
+                    </div>
+                    <div class="underline"></div>
+                </div>
+                <div class="cart-totals">
+                    <a (click)="emptyCart()" class="button-primary">
+                            Empty Cart
+                    </a>
+                    <p class="text-medium">Cart Total: ${{cartTotal}}</p>
+                </div>
+            </div>
+            <ng-template #emptyBlock class="cart-products-container">
+                <h1>No items in your cart</h1>
+            </ng-template>
+            <div class="form-container">
+
+            </div>
+        </div>
+    </div>
+</div>

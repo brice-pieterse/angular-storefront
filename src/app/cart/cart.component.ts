@@ -2,13 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../models/product'
 import { CartService } from '../services/cart.service'
 
-class CartProduct extends Product {
-  quantity: number
-  constructor(){
-    super()
-    this.quantity = 0
-  }
-}
 
 @Component({
   selector: 'app-cart',
@@ -18,19 +11,41 @@ class CartProduct extends Product {
 
 export class CartComponent implements OnInit {
 
-  items: CartProduct[] = []
+  cartCount: number = 0
+  cartTotal: number
+  items: Product[] = []
 
   constructor(private cartService: CartService) {
 
   }
 
   ngOnInit(): void {
+
     this.items = this.cartService.getCartProducts()
+    this.cartCount = this.items.length
+    this.cartTotal = this.items.reduce((acc, item) => {
+      return acc += item.price
+    }, 0)
+
   }
 
   emptyCart(){
+
     this.items = []
     this.cartService.emptyCart()
+
+  }
+
+  removeItem(item: Product){
+
+    this.cartService.removeFromCart(item)
+
+    this.items = this.items.filter(it => {
+      return it.id != item.id
+    })
+
+    this.cartCount = this.items.length
+
   }
 
 }
