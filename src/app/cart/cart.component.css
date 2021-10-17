@@ -11,15 +11,6 @@
     width: 42.5%;
 }
 
-.form-wrapper {
-    width: 100%;
-    height: 500px;
-    border-radius: 20px;
-    background-color: #f9f9f9;
-    padding: 20px 20px 20px 20px;
-    box-sizing: border-box;
-}
-
 .cart-products-container {
     width: 52.5%;
     max-height: 100%;
@@ -74,15 +65,16 @@
     border-radius: 20px;
 }
 
-form {
-    height: 100%;
+.order-success {
+    height: 500px;
     width: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    padding-top: 140px;
+    box-sizing: border-box;
 }
 
-.button-primary.dark.submit {
-    height: 50px;
+.order-success.vertical {
+    flex-direction: column;
 }

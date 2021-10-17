@@ -1,7 +1,7 @@
 <app-nav [cartCount]="cartCount"></app-nav>
 <div class="aligner">
     <div class="max-width-container horizontal">
-        <div class="cart-wrapper">
+        <div *ngIf="!orderPlaced; else orderSuccess" class="cart-wrapper">
             <div *ngIf="items.length >= 1; else emptyBlock" class="cart-products-container">
                 <div class="cart-product" *ngFor="let item of items">
                     <img class="cart-product-thumb" src="../../assets/product-thumbs/{{item.thumb}}">
@@ -11,7 +11,7 @@
                         <div class="aligner horizontal space-between">
                             <p class="text-medium">${{item?.price}}</p>
                             <a (click)="removeItem(item)" class="button-primary">
-                                Remove
+                                Remove ❌
                             </a>
                         </div>
                     </div>
@@ -19,7 +19,7 @@
                 </div>
                 <div class="cart-totals">
                     <a (click)="emptyCart()" class="button-primary">
-                            Empty Cart
+                            Empty Cart 🗑
                     </a>
                     <p class="text-medium">Cart Total: ${{cartTotal}}</p>
                 </div>
@@ -29,45 +29,19 @@
             </ng-template>
             <div class="aligner vertical left form-container">
                 <p class="text-large margin-bottom">Place your order ⤵️</p>
-                <div class="form-wrapper">
-                    <form>
-                        <div class="aligner horizontal space-between">
-                            <div style="width: 47.5%;">
-                                <label for="name">Name</label>
-                                <input type="text" name="name" placeholder="Your full name">
-                            </div>
-                            <div style="width: 47.5%;">
-                                <label for="email">Email</label>
-                                <input type="email" name="email" placeholder="Your email address">
-                            </div>
-                        </div>
-                        <label for="address">Address</label>
-                        <input type="text" name="address" placeholder="Apartment/House, Street, City/Town, ZIP/Postal">
-                        <div class="aligner horizontal space-between">
-                            <div style="width: 47.5%;">
-                                <label for="province/state">Province/State</label>
-                                <input type="text" name="province/state" placeholder="Your province or state">
-                            </div>
-                            <div style="width: 47.5%;">
-                                <label for="country">Country</label>
-                                <input type="text" name="country" placeholder="Your country">
-                            </div>
-                        </div>
-                        <div class="aligner horizontal space-between">
-                            <div style="width: 47.5%;">
-                                <label for="credit card">Card Number</label>
-                                <input name="card" type="text" inputmode="numeric" placeholder="xxxx xxxx xxxx xxxx" >
-                            </div>
-                            <div style="width: 47.5%;">
-                                <label for="card pin">Card PIN</label>
-                                <input type="text" name="pin" inputmode="numeric" placeholder="xxxx" >
-                            </div>
-                        </div>
-                        <button class="button-primary dark submit" type="submit">Place Order ➡️</button>
-                    </form>
-                </div>
+                <app-cart-form (placeOrder)="placeOrder($event)"></app-cart-form>
                 <p class="text-medium margin-top">P.S. No returns! We're a small company.</p>
             </div>
         </div>
+        <ng-template #orderSuccess class="cart-wrapper">
+            <div class="order-success vertical" style="min-height: 100%">
+                <h1 class="margin-bottom">Your order has been placed 🍻</h1>
+                <p class="text-large margin-bottom">Your receipt includes: </p>
+                <p class="text-medium margin-bottom">Your name: {{receipt.name}}</p>
+                <p class="text-medium margin-bottom">Your email: {{receipt.email}}</p>
+                <p class="text-medium margin-bottom">Your address: {{receipt.address}}</p>
+                <p class="text-medium">Your card ending in: {{receipt.card?.substring(receipt.card.length-4)}}</p>
+            </div>
+        </ng-template>
     </div>
 </div>

@@ -1,6 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, TemplateRef, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Product } from '../models/product'
 import { CartService } from '../services/cart.service'
+
+interface Receipt {
+  name: string
+  email: string
+  address: string
+  state: string
+  country: string
+  card: string
+  pin: string
+}
 
 
 @Component({
@@ -11,9 +21,14 @@ import { CartService } from '../services/cart.service'
 
 export class CartComponent implements OnInit {
 
+  orderPlaced: boolean = false
+  receipt: Receipt
   cartCount: number = 0
   cartTotal: number
   items: Product[] = []
+
+  @ViewChild('.order-success') orderSuccess: ElementRef
+
 
   constructor(private cartService: CartService) {
 
@@ -46,6 +61,14 @@ export class CartComponent implements OnInit {
 
     this.cartCount = this.items.length
 
+  }
+
+  placeOrder(msg: Receipt){
+    this.orderPlaced = true
+    this.cartCount = 0
+    this.items = []
+    this.cartService.emptyCart()
+    this.receipt = msg
   }
 
 }

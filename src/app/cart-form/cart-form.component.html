@@ -1,0 +1,37 @@
+<div class="form-wrapper">
+    <form (ngSubmit)="submitOrder()" #form="ngForm">
+        <div class="aligner horizontal space-between">
+            <div style="width: 49%;">
+                <label for="name">Name</label>
+                <input [(ngModel)]="name" type="text" name="name" placeholder="Your full name" required #formName="ngModel">
+            </div>
+            <div style="width: 49%;">
+                <label for="email">Email</label>
+                <input [(ngModel)]="email" type="email" name="email" placeholder="Your email address" required #formEmail="ngModel">
+            </div>
+        </div>
+        <label for="address">Address</label>
+        <input [(ngModel)]="address" type="text" name="address" placeholder="Apartment/House, Street, City/Town, ZIP/Postal" required #formAddress="ngModel">
+        <div class="aligner horizontal space-between">
+            <div style="width: 49%;">
+                <label for="province/state">Province/State</label>
+                <input [(ngModel)]="state" type="text" name="province/state" placeholder="Your province or state" required #formState="ngModel">
+            </div>
+            <div style="width: 49%;">
+                <label for="country">Country</label>
+                <input [(ngModel)]="country" type="text" name="country" placeholder="Your country" required #formCountry="ngModel">
+            </div>
+        </div>
+        <div class="aligner horizontal space-between">
+            <div style="width: 49%;">
+                <label for="credit card">Card Number</label>
+                <input [(ngModel)]="card" name="card" type="text" inputmode="numeric" placeholder="xxxx xxxx xxxx xxxx" required #formCard="ngModel">
+            </div>
+            <div style="width: 49%;">
+                <label for="card pin">Card PIN</label>
+                <input [(ngModel)]="pin" type="text" name="pin" inputmode="numeric" placeholder="xxxx" required #formPin="ngModel" pinValidator>
+            </div>
+        </div>
+        <button class="button-primary dark submit" type="submit" [disabled]="form.invalid">Place Your Order ➡️</button>
+    </form>
+</div>

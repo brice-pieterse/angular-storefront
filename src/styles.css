@@ -135,6 +135,9 @@ input {
 .text-medium.margin-top {
     margin-top: 20px;
 }
+.text-medium.margin-bottom {
+    margin-bottom: 20px;
+}
 
 .text-small.margin-top {
     margin-top: 10px;
