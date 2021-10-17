@@ -24,12 +24,23 @@ export class CartService {
   getCartProducts(){
 
     return this.cart
-    
+
   }
 
   addToCart(product: Product){
 
-    if (!this.cart.includes(product)){
+    let found = false
+    let index = 0
+
+    while (index < this.cart.length){
+      if (this.cart[index].id === product.id){
+        found = true
+        break
+      }
+      index++
+    }
+
+    if (!found){
       this.cart.push(product)
     }
 
