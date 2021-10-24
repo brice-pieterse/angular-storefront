@@ -15,7 +15,9 @@ import { BackgroundThemeDirective } from './background-theme.directive';
 import { ProductThumbComponent } from './product-thumb/product-thumb.component';
 import { FeaturedMainComponent } from './featured-main/featured-main.component';
 
-import { CartService } from './services/cart.service';
+import { PinValidatorDirective } from './cart-form/validators/pinValidator'
+import { CardValidatorDirective } from './cart-form/validators/cardValidator'
+import { EmailValidatorDirective } from './cart-form/validators/emailValidator'
 
 import { CartFormComponent } from './cart-form/cart-form.component'
 
@@ -29,7 +31,10 @@ import { CartFormComponent } from './cart-form/cart-form.component'
     BackgroundThemeDirective,
     ProductThumbComponent,
     FeaturedMainComponent,
-    CartFormComponent
+    CartFormComponent,
+    PinValidatorDirective,
+    CardValidatorDirective,
+    EmailValidatorDirective
     ],
   imports: [
     BrowserModule,
@@ -37,7 +42,7 @@ import { CartFormComponent } from './cart-form/cart-form.component'
     HttpClientModule,
     FormsModule
   ],
-  providers: [CartService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

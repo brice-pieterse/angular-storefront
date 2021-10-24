@@ -1,6 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core'
-import { AbstractControl } from '@angular/forms'
+import { CountryService } from '../services/shipping-services/country.service'
 
 interface Receipt {
   name: string
@@ -19,6 +19,8 @@ interface Receipt {
 })
 
 export class CartFormComponent implements OnInit {
+  
+  shippingCountries: string[] = []
 
   @Output() placeOrder: EventEmitter<Receipt> = new EventEmitter;
 
@@ -30,10 +32,16 @@ export class CartFormComponent implements OnInit {
   card: string
   pin: string
 
-  constructor() { 
+  constructor(private countryService: CountryService) { 
   }
 
   ngOnInit(): void {
+    this.countryService.getCountries().subscribe(countries => {
+      for (let country of countries){
+        this.shippingCountries.push(country.name.common)
+      }
+      this.shippingCountries.sort()
+    })
   }
 
   submitOrder(): void {

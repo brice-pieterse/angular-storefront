@@ -1,5 +1,5 @@
 <div class="form-wrapper">
-    <form (ngSubmit)="submitOrder()" #form="ngForm">
+    <form (ngSubmit)="submitOrder()" #form="ngForm" id="cartForm">
         <div class="aligner horizontal space-between">
             <div style="width: 49%;">
                 <label for="name">Name</label>
@@ -7,7 +7,7 @@
             </div>
             <div style="width: 49%;">
                 <label for="email">Email</label>
-                <input [(ngModel)]="email" type="email" name="email" placeholder="Your email address" required #formEmail="ngModel">
+                <input [(ngModel)]="email" type="email" name="email" placeholder="Your email address" required #formEmail="ngModel" cartEmailValidator>
             </div>
         </div>
         <label for="address">Address</label>
@@ -19,17 +19,19 @@
             </div>
             <div style="width: 49%;">
                 <label for="country">Country</label>
-                <input [(ngModel)]="country" type="text" name="country" placeholder="Your country" required #formCountry="ngModel">
+                <select class="select" name="countries" id="countries" form="cartForm">
+                    <option *ngFor="let country of shippingCountries" value="country">{{country}}</option>
+                </select>
             </div>
         </div>
         <div class="aligner horizontal space-between">
             <div style="width: 49%;">
                 <label for="credit card">Card Number</label>
-                <input [(ngModel)]="card" name="card" type="text" inputmode="numeric" placeholder="xxxx xxxx xxxx xxxx" required #formCard="ngModel">
+                <input [(ngModel)]="card" name="card" type="text" inputmode="numeric" placeholder="xxxx xxxx xxxx xxxx" required #formCard="ngModel" cartCardValidator>
             </div>
             <div style="width: 49%;">
                 <label for="card pin">Card PIN</label>
-                <input [(ngModel)]="pin" type="text" name="pin" inputmode="numeric" placeholder="xxxx" required #formPin="ngModel" pinValidator>
+                <input [(ngModel)]="pin" type="text" name="pin" inputmode="numeric" placeholder="xxxx" required #formPin="ngModel" cartPinValidator>
             </div>
         </div>
         <button class="button-primary dark submit" type="submit" [disabled]="form.invalid">Place Your Order ➡️</button>
