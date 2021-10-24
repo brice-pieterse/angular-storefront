@@ -34,6 +34,23 @@
                 <input [(ngModel)]="pin" type="text" name="pin" inputmode="numeric" placeholder="xxxx" required #formPin="ngModel" cartPinValidator>
             </div>
         </div>
-        <button class="button-primary dark submit" type="submit" [disabled]="form.invalid">Place Your Order ➡️</button>
+        <button class="button-primary dark submit" [class.disabled] = "form.invalid" type="submit" [disabled]="form.invalid">Place Your Order ➡️</button>
     </form>
+    <div *ngIf="form.invalid" class="form-error-wrapper">
+        <div *ngIf="formCard.invalid && formCard.dirty" class="aligner horizontal left">
+            <div *ngIf="formCard.errors != null" class="aligner horizontal">
+                <p class="text-small">⚠️ Your card should be 16 numbers long</p>
+            </div>
+        </div>
+        <div *ngIf="formEmail.invalid && formEmail.dirty" class="aligner horizontal">
+            <div *ngIf="formEmail.errors != null" class="aligner horizontal">
+            <p class="text-small">⚠️ Sorry, we only ship to people with Gmail</p>
+            </div>
+        </div>
+        <div *ngIf="formPin.invalid && formPin.dirty" class="aligner horizontal left">
+            <div *ngIf="formPin.errors != null" class="aligner horizontal">
+                <p class="text-small">⚠️ Your pin should be between 4 and 6 numbers long</p>
+            </div>
+        </div>
+    </div>
 </div>

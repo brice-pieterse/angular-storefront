@@ -1,7 +1,8 @@
 
 .form-wrapper {
     width: 100%;
-    height: 500px;
+    position: relative;
+    height: 485px;
     border-radius: 20px;
     background-color: #f9f9f9;
     padding: 20px 20px 20px 20px;
@@ -20,4 +21,13 @@ form {
 .button-primary.dark.submit {
     height: 55px;
     width: 100%;
+}
+
+.button-primary.dark.submit.disabled {
+    opacity: 0.5;
+}
+
+.form-error-wrapper {
+    width: 100%;
+    margin-top: 30px;
 }
