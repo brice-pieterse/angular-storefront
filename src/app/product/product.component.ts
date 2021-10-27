@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild  } from '@angular/core';
 import { InventoryService } from '../services/inventory.service'
 import { CartService } from '../services/cart.service'
 import { Product } from '../models/product'
@@ -13,8 +13,11 @@ import { Location } from '@angular/common'
 
 export class ProductComponent implements OnInit {
 
+  @ViewChild ('cartButton') cartButton : ElementRef
+
   cartCount: number
   product: Product
+  addedToCart: boolean = false
 
   constructor(private inventoryService: InventoryService, private cartService: CartService, private location: Location, private route: ActivatedRoute) { }
 
@@ -33,10 +36,18 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(): void {
-    this.cartService.addToCart(this.product)
-    this.cartCount = this.cartService.getCartProducts().length
+    if (!this.addedToCart){
+      this.cartService.addToCart(this.product)
+      this.cartCount = this.cartService.getCartProducts().length
+      this.addedToCart = true
+      this.cartButton.nativeElement.innerText = `Remove From Cart - ${this.product.price}`
+    }
+    else {
+      this.cartService.removeFromCart(this.product)
+      this.cartCount = this.cartCount - 1
+      this.addedToCart = false
+      this.cartButton.nativeElement.innerText = `Add To Cart - ${this.product.price}`
+    }
   }
-
-  
 
 }

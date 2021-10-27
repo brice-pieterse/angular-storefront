@@ -5,11 +5,12 @@
             <div class="aligner">
                 <div class="product-thumb">
                     <img *ngIf="product?.thumb" src='../../assets/product-thumbs/{{product?.thumb}}'>
+                    <div [ngClass]="{'on': addedToCart}" class="toast-remove"><p class="text-medium dark">Added to your cart ✓</p></div>
                 </div>
                 <div class="product-details">
                     <h1>{{product?.name}}</h1>
                     <p class="text-medium margin-top">{{product?.description}}</p>
-                    <a (click)="addToCart()" class='button-primary margin-top'>Add To Cart - ${{product?.price}}</a>
+                    <a (click)="addToCart()" class='button-primary margin-top' #cartButton>Add To Cart - ${{product?.price}}</a>
                 </div>
             </div>
         </div>

@@ -7,6 +7,6 @@
             <h1 class="margin-bottom">Show Of The Day</h1>
             <p class="text-large">{{featuredMain?.name}}</p>
             <p class="text-small margin-top">{{featuredMain?.description}}</p>
-            <a (mouseenter)="setHovered()" (mouseleave)="setHoverOut()" class='button-primary margin-top' routerLink='/products/{{featuredMain.id}}'>About</a>
+            <a (mouseenter)="setHovered()" (mouseleave)="setHoverOut()" class='button-primary margin-top' routerLink='/products/{{featuredMain.id}}'>${{featuredMain?.price}} - More Info</a>
     </div>
 </div>
