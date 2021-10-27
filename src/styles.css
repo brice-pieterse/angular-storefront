@@ -108,6 +108,10 @@ label, select, .input {
     font-weight: 400;
 }
 
+p.dark {
+    color: #04172E;
+}
+
 label, input, select, .input {
     color: #04172E;
 }
@@ -151,6 +155,7 @@ label, input, select, .input {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .aligner.vertical.left {
