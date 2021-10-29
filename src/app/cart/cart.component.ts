@@ -1,5 +1,5 @@
 import { Component, TemplateRef, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Product } from '../models/product'
+import { CartProduct } from '../models/cartProduct'
 import { CartService } from '../services/cart.service'
 
 interface Receipt {
@@ -25,7 +25,7 @@ export class CartComponent implements OnInit {
   receipt: Receipt
   cartCount: number = 0
   cartTotal: number
-  items: Product[] = []
+  items: CartProduct[] = []
 
   @ViewChild('.order-success') orderSuccess: ElementRef
 
@@ -51,7 +51,7 @@ export class CartComponent implements OnInit {
 
   }
 
-  removeItem(item: Product){
+  removeItem(item: CartProduct){
 
     this.cartService.removeFromCart(item)
 

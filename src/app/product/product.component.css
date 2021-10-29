@@ -89,3 +89,11 @@
     bottom: 20px;
     opacity: 1;
 }
+
+form {
+    margin-top: 40px;
+}
+
+select {
+    height: 40px
+}

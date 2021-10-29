@@ -6,6 +6,7 @@ export class Product {
     featured: boolean
     description: string
     bg: string
+    seasons: number[]
 
     constructor(){
         this.id = 0
@@ -14,6 +15,7 @@ export class Product {
         this.price = 0
         this.featured = false
         this.description = ""
-        this.bg = ""
+        this.bg = "",
+        this.seasons = []
     }
 }

@@ -1,13 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product'
+import { CartProduct } from '../models/cartProduct'
 
-class CartProduct extends Product {
-  quantity: number
-  constructor(){
-    super()
-    this.quantity = 0
-  }
-}
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +9,7 @@ class CartProduct extends Product {
 
 export class CartService {
 
-  cart: Product[] = []
+  cart: CartProduct[] = []
 
   constructor() {
 
@@ -27,7 +21,7 @@ export class CartService {
 
   }
 
-  addToCart(product: Product){
+  addToCart(product: CartProduct){
 
     let found = false
     let index = 0
@@ -46,7 +40,7 @@ export class CartService {
 
   }
 
-  removeFromCart(product: Product){
+  removeFromCart(product: CartProduct){
 
     this.cart = this.cart.filter((item) => {
       return item.id !== product.id
